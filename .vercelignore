@@ -1,0 +1,5 @@
+# No se sube a Vercel
+config/config.php
+pdf/*
+perfiles/*
+*.zip

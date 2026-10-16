@@ -1,0 +1,20 @@
+# Credenciales de la base de datos (cada equipo tiene las suyas)
+config/config.php
+
+# Documentos subidos: no se versionan, solo la carpeta
+pdf/*
+!pdf/.htaccess
+!pdf/.gitkeep
+
+.DS_Store
+Thumbs.db
+
+# Fotos de perfil subidas
+perfiles/*
+!perfiles/.htaccess
+!perfiles/.gitkeep
+
+# Archivos comprimidos y dependencias
+*.zip
+node_modules/
+.vercel

@@ -1,0 +1,8 @@
+{
+  "name": "gestion-documentos",
+  "private": true,
+  "description": "Gestión de Documentos · Oficina Digital (PHP + MySQL). Este archivo solo fija la versión de Node que usa Vercel para el runtime vercel-php.",
+  "engines": {
+    "node": "22.x"
+  }
+}
