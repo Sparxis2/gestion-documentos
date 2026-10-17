@@ -568,3 +568,80 @@ select.etiqueta {
   .perfil-foto-botones { justify-content: center; }
   .perfil-foto-botones form, .perfil-foto-botones .btn { flex: 1; }
 }
+
+/* ============================================================
+   Integración con Bootstrap 5
+   Bootstrap se carga antes que este archivo. Aquí se ajustan sus
+   variables para que botones, modal, avisos y tooltips usen la
+   paleta del sistema en lugar de los colores de Bootstrap.
+   ============================================================ */
+
+.btn {
+  --bs-btn-font-weight: 600;
+  --bs-btn-border-radius: 10px;
+  --bs-btn-focus-box-shadow: 0 0 0 3px rgba(216, 27, 96, .25);
+  --bs-btn-disabled-opacity: .6;
+}
+.btn-primario {
+  --bs-btn-color: #fff;                --bs-btn-bg: var(--acento);           --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: #fff;          --bs-btn-hover-bg: var(--acento-oscuro); --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: #fff;         --bs-btn-active-bg: var(--acento-oscuro); --bs-btn-active-border-color: transparent;
+  --bs-btn-disabled-color: #fff;       --bs-btn-disabled-bg: var(--acento);  --bs-btn-disabled-border-color: transparent;
+}
+.btn-suave {
+  --bs-btn-color: var(--texto);        --bs-btn-bg: #fff;                    --bs-btn-border-color: var(--linea);
+  --bs-btn-hover-color: var(--texto);  --bs-btn-hover-bg: var(--fondo);      --bs-btn-hover-border-color: var(--linea);
+  --bs-btn-active-color: var(--texto); --bs-btn-active-bg: var(--fondo);     --bs-btn-active-border-color: var(--linea);
+  --bs-btn-disabled-color: var(--texto); --bs-btn-disabled-bg: #fff;         --bs-btn-disabled-border-color: var(--linea);
+}
+.btn-peligro {
+  --bs-btn-color: #fff;                --bs-btn-bg: var(--rojo-t);           --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: #fff;          --bs-btn-hover-bg: #921c1c;           --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: #fff;         --bs-btn-active-bg: #921c1c;          --bs-btn-active-border-color: transparent;
+  --bs-btn-disabled-color: #fff;       --bs-btn-disabled-bg: var(--rojo-t);  --bs-btn-disabled-border-color: transparent;
+  background: var(--rojo-t); color: #fff;
+}
+.btn-peligro:hover { background: #921c1c; color: #fff; }
+
+/* Ventana de confirmación */
+.modal-content { border: 0; border-radius: var(--radio); box-shadow: 0 18px 50px rgba(43, 17, 33, .35); color: var(--texto); }
+.modal-header { border-bottom-color: var(--linea); }
+.modal-footer { border-top-color: var(--linea); gap: 8px; }
+.modal-footer > * { margin: 0; }
+.modal-title { font-size: 18px; font-weight: 700; }
+.modal-body { font-size: 15px; }
+.modal-backdrop.show { opacity: .55; }
+
+/* Avisos flotantes */
+.avisos-flotantes { top: calc(var(--alto-barra) + 12px); right: 16px; z-index: 1090; }
+.aviso-toast { border: 0; border-radius: 12px; box-shadow: 0 10px 30px rgba(43, 17, 33, .2); font-size: 14px; }
+.aviso-toast-ok { background: var(--verde-f); color: var(--verde-t); }
+.aviso-toast-error { background: var(--rojo-f); color: var(--rojo-t); }
+
+/* Tooltips con la paleta del sistema */
+.tooltip { --bs-tooltip-bg: var(--marino); --bs-tooltip-font-size: 12px; }
+
+/* Tarjetas de totales dentro de la rejilla de Bootstrap */
+.resumen-bs .tarjeta-dato { height: 100%; }
+
+/* Búsqueda en vivo: mientras llegan los resultados */
+#resultados { transition: opacity .15s; }
+#resultados.cargando { opacity: .5; }
+
+@media (max-width: 900px) {
+  .avisos-flotantes { top: auto; bottom: calc(84px + env(safe-area-inset-bottom)); right: 12px; left: 12px; }
+  .avisos-flotantes .toast { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .resumen-bs { --bs-gutter-x: 10px; --bs-gutter-y: 10px; }
+}
+
+@media print {
+  .resumen-bs > [class*="col-"] { flex: 0 0 25%; max-width: 25%; }
+  .row.g-3 > .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+  .modal, .toast-container, .tooltip { display: none !important; }
+}
+.row > [class*="col-"] > .panel { margin-bottom: 0; }
+/* Bootstrap aligera los títulos (font-weight 500): se regresa al grosor del diseño */
+h1, h2 { font-weight: 700; }

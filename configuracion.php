@@ -89,8 +89,8 @@ require __DIR__ . '/includes/header.php';
   <h1><?= icono('gear') ?> Configuración</h1>
 </div>
 
-<div class="rejilla-2 rejilla-paneles">
-  <section class="panel">
+<div class="row g-3 mb-3">
+  <div class="col-12 col-lg-6"><section class="panel h-100">
     <div class="panel-titulo"><h2>Mi cuenta</h2></div>
 
     <div class="perfil-foto">
@@ -127,9 +127,9 @@ require __DIR__ . '/includes/header.php';
         <button class="btn btn-primario" type="submit"><?= icono('save') ?> Guardar nombre</button>
       </div>
     </form>
-  </section>
+  </section></div>
 
-  <section class="panel">
+  <div class="col-12 col-lg-6"><section class="panel h-100">
     <div class="panel-titulo"><h2>Cambiar contraseña</h2></div>
     <form method="post" autocomplete="off">
       <?= csrf_campo() ?>
@@ -138,12 +138,12 @@ require __DIR__ . '/includes/header.php';
         <span>Contraseña actual</span>
         <input type="password" name="actual" required autocomplete="current-password">
       </label>
-      <div class="rejilla-2">
-        <label class="campo">
+      <div class="row gx-3">
+        <label class="campo col-12 col-sm-6">
           <span>Nueva contraseña</span>
           <input type="password" name="nueva" minlength="6" required autocomplete="new-password">
         </label>
-        <label class="campo">
+        <label class="campo col-12 col-sm-6">
           <span>Repetir nueva</span>
           <input type="password" name="repetir" minlength="6" required autocomplete="new-password">
         </label>
@@ -152,30 +152,30 @@ require __DIR__ . '/includes/header.php';
         <button class="btn btn-primario" type="submit"><?= icono('save') ?> Cambiar contraseña</button>
       </div>
     </form>
-  </section>
+  </section></div>
 
   <?php if (es_admin()): ?>
-  <section class="panel">
+  <div class="col-12 col-lg-6"><section class="panel h-100">
     <div class="panel-titulo"><h2>Datos del sistema</h2></div>
     <form method="post">
       <?= csrf_campo() ?>
       <input type="hidden" name="accion" value="sistema">
-      <div class="rejilla-2">
-        <label class="campo">
+      <div class="row gx-3">
+        <label class="campo col-12 col-sm-6">
           <span>Institución *</span>
           <input type="text" name="institucion" value="<?= e(config_valor('institucion')) ?>" maxlength="60" required>
         </label>
-        <label class="campo">
+        <label class="campo col-12 col-sm-6">
           <span>Área</span>
           <input type="text" name="area" value="<?= e(config_valor('area')) ?>" maxlength="60">
         </label>
       </div>
-      <div class="rejilla-2">
-        <label class="campo">
+      <div class="row gx-3">
+        <label class="campo col-12 col-sm-6">
           <span>Nombre del sistema *</span>
           <input type="text" name="sistema" value="<?= e(config_valor('sistema')) ?>" maxlength="60" required>
         </label>
-        <label class="campo">
+        <label class="campo col-12 col-sm-6">
           <span>Subtítulo</span>
           <input type="text" name="subtitulo" value="<?= e(config_valor('subtitulo')) ?>" maxlength="60">
         </label>
@@ -192,7 +192,7 @@ require __DIR__ . '/includes/header.php';
         <button class="btn btn-primario" type="submit"><?= icono('save') ?> Guardar</button>
       </div>
     </form>
-  </section>
+  </section></div>
   <?php endif; ?>
 </div>
 <?php require __DIR__ . '/includes/footer.php'; ?>

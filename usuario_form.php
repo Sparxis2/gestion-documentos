@@ -96,13 +96,13 @@ require __DIR__ . '/includes/header.php';
       <span>Nombre completo *</span>
       <input type="text" name="nombre" value="<?= e($datos['nombre']) ?>" maxlength="120" required>
     </label>
-    <div class="rejilla-2">
-      <label class="campo">
+    <div class="row gx-3">
+      <label class="campo col-12 col-sm-6">
         <span>Usuario *</span>
         <input type="text" name="usuario" value="<?= e($datos['usuario']) ?>" maxlength="50" required
                autocapitalize="none" autocomplete="off">
       </label>
-      <label class="campo">
+      <label class="campo col-12 col-sm-6">
         <span>Rol *</span>
         <select name="rol" required>
           <option value="capturista" <?= $datos['rol'] === 'capturista' ? 'selected' : '' ?>>Capturista</option>

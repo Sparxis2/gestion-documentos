@@ -25,7 +25,7 @@ require __DIR__ . '/includes/header.php';
 </div>
 
 <section class="panel">
-  <form class="buscador" method="get" action="buscar.php">
+  <form class="buscador" method="get" action="buscar.php" data-vivo="#resultados">
     <label class="campo campo-buscar">
       <span class="solo-lectores">Texto a buscar</span>
       <?= icono('search') ?>
@@ -35,6 +35,7 @@ require __DIR__ . '/includes/header.php';
     <button class="btn btn-primario" type="submit">Buscar</button>
   </form>
 
+  <div id="resultados">
   <?php if ($filtros['q'] === ''): ?>
     <div class="vacio">
       <?= icono('search') ?>
@@ -50,5 +51,6 @@ require __DIR__ . '/includes/header.php';
       <p>No se encontró ningún documento con «<?= e($filtros['q']) ?>».</p>
     </div>
   <?php endif; ?>
+  </div>
 </section>
 <?php require __DIR__ . '/includes/footer.php'; ?>

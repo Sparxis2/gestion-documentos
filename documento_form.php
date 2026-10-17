@@ -131,13 +131,13 @@ require __DIR__ . '/includes/header.php';
         data-archivo-obligatorio="<?= (!$editar || empty($doc['archivo'])) ? '1' : '0' ?>">
     <?= csrf_campo() ?>
 
-    <div class="rejilla-2">
-      <label class="campo">
+    <div class="row gx-3">
+      <label class="campo col-12 col-sm-6">
         <span>No. de Oficio *</span>
         <input type="text" name="no_oficio" value="<?= e($datos['no_oficio']) ?>" maxlength="30"
                placeholder="Ej. 045/2026" required>
       </label>
-      <label class="campo">
+      <label class="campo col-12 col-sm-6">
         <span>Fecha *</span>
         <input type="date" name="fecha" value="<?= e($datos['fecha']) ?>" required>
       </label>
@@ -149,13 +149,13 @@ require __DIR__ . '/includes/header.php';
              placeholder="Descripción breve del asunto del documento" required>
     </label>
 
-    <div class="rejilla-2">
-      <label class="campo">
+    <div class="row gx-3">
+      <label class="campo col-12 col-sm-6">
         <span>Remitente *</span>
         <input type="text" name="remitente" value="<?= e($datos['remitente']) ?>" maxlength="150"
                placeholder="Nombre o dependencia" required>
       </label>
-      <label class="campo">
+      <label class="campo col-12 col-sm-6">
         <span>Destinatario *</span>
         <input type="text" name="destinatario" value="<?= e($datos['destinatario']) ?>" maxlength="150"
                placeholder="Nombre o área" required>

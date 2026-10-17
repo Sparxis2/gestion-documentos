@@ -27,7 +27,7 @@ require __DIR__ . '/includes/header.php';
 </div>
 
 <section class="panel">
-  <form class="filtros" method="get" action="documentos.php">
+  <form class="filtros" method="get" action="documentos.php" data-vivo="#resultados">
     <label class="campo campo-buscar">
       <span class="solo-lectores">Buscar</span>
       <?= icono('search') ?>
@@ -57,6 +57,7 @@ require __DIR__ . '/includes/header.php';
     </div>
   </form>
 
+  <div id="resultados">
   <?php if ($docs): ?>
     <?php tabla_documentos($docs); ?>
     <?php paginacion($total, $pagina, $porPagina); ?>
@@ -72,5 +73,6 @@ require __DIR__ . '/includes/header.php';
       <?php endif; ?>
     </div>
   <?php endif; ?>
+  </div>
 </section>
 <?php require __DIR__ . '/includes/footer.php'; ?>

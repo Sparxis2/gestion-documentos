@@ -26,23 +26,23 @@ require __DIR__ . '/includes/header.php';
   <a class="btn btn-primario" href="documento_form.php"><?= icono('plus') ?> Nuevo Documento</a>
 </div>
 
-<section class="resumen">
-  <a class="tarjeta-dato" href="documentos.php">
+<section class="row g-3 mb-3 resumen-bs">
+  <div class="col-6 col-lg-3"><a class="tarjeta-dato h-100" href="documentos.php">
     <span class="dato-num"><?= $total ?></span>
     <span class="dato-txt">Documentos</span>
-  </a>
-  <a class="tarjeta-dato dato-recibido" href="documentos.php?estatus=Recibido">
+  </a></div>
+  <div class="col-6 col-lg-3"><a class="tarjeta-dato h-100 dato-recibido" href="documentos.php?estatus=Recibido">
     <span class="dato-num"><?= $conteo['Recibido'] ?></span>
     <span class="dato-txt">Recibidos</span>
-  </a>
-  <a class="tarjeta-dato dato-proceso" href="documentos.php?estatus=En+proceso">
+  </a></div>
+  <div class="col-6 col-lg-3"><a class="tarjeta-dato h-100 dato-proceso" href="documentos.php?estatus=En+proceso">
     <span class="dato-num"><?= $conteo['En proceso'] ?></span>
     <span class="dato-txt">En proceso</span>
-  </a>
-  <a class="tarjeta-dato dato-atendido" href="documentos.php?estatus=Atendido">
+  </a></div>
+  <div class="col-6 col-lg-3"><a class="tarjeta-dato h-100 dato-atendido" href="documentos.php?estatus=Atendido">
     <span class="dato-num"><?= $conteo['Atendido'] ?></span>
     <span class="dato-txt">Atendidos</span>
-  </a>
+  </a></div>
 </section>
 
 <section class="panel">

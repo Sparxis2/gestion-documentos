@@ -30,7 +30,10 @@ $porIp   = $esLocal || (bool) filter_var(preg_replace('/:\d+$/', '', $host), FIL
 $direcciones = [];
 if (!$esLocal && $host !== '') {
     // Ya se entró por IP o por dominio: esa misma dirección sirve en cualquier dispositivo
-    $esquema = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    // Detrás del proxy de Vercel el protocolo real llega en X-Forwarded-Proto
+    $esHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+        || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https');
+    $esquema = $esHttps ? 'https' : 'http';
     $direcciones[] = $esquema . '://' . $host . $carpeta;
 } else {
     foreach ($ips as $ip) {

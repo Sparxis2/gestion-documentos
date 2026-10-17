@@ -114,16 +114,16 @@ require __DIR__ . '/includes/header.php';
 <p class="periodo"><strong><?= e(config_valor('institucion', '')) ?> · <?= e(config_valor('sistema', '')) ?></strong><br>
   <?= e($periodo) ?> · Generado el <?= date('d/m/Y H:i') ?></p>
 
-<section class="resumen">
-  <div class="tarjeta-dato"><span class="dato-num"><?= $total ?></span><span class="dato-txt">Documentos</span></div>
-  <div class="tarjeta-dato dato-recibido"><span class="dato-num"><?= $porEstatus['Recibido'] ?></span><span class="dato-txt">Recibidos</span></div>
-  <div class="tarjeta-dato dato-proceso"><span class="dato-num"><?= $porEstatus['En proceso'] ?></span><span class="dato-txt">En proceso</span></div>
-  <div class="tarjeta-dato dato-atendido"><span class="dato-num"><?= $porEstatus['Atendido'] ?></span><span class="dato-txt">Atendidos</span></div>
+<section class="row g-3 mb-3 resumen-bs">
+  <div class="col-6 col-lg-3"><div class="tarjeta-dato h-100"><span class="dato-num"><?= $total ?></span><span class="dato-txt">Documentos</span></div></div>
+  <div class="col-6 col-lg-3"><div class="tarjeta-dato h-100 dato-recibido"><span class="dato-num"><?= $porEstatus['Recibido'] ?></span><span class="dato-txt">Recibidos</span></div></div>
+  <div class="col-6 col-lg-3"><div class="tarjeta-dato h-100 dato-proceso"><span class="dato-num"><?= $porEstatus['En proceso'] ?></span><span class="dato-txt">En proceso</span></div></div>
+  <div class="col-6 col-lg-3"><div class="tarjeta-dato h-100 dato-atendido"><span class="dato-num"><?= $porEstatus['Atendido'] ?></span><span class="dato-txt">Atendidos</span></div></div>
 </section>
 
 <?php if ($total > 0): ?>
-<div class="rejilla-2 rejilla-paneles">
-  <section class="panel">
+<div class="row g-3 mb-3">
+  <div class="col-12 col-lg-6"><section class="panel h-100">
     <div class="panel-titulo"><h2>Documentos por estatus</h2></div>
     <?php foreach (lista_estatus() as $nombre => $clase): ?>
       <?php $pct = round($porEstatus[$nombre] * 100 / $total); ?>
@@ -140,9 +140,9 @@ require __DIR__ . '/includes/header.php';
         <tr><td><?= e($r['remitente']) ?></td><td class="num"><?= (int) $r['n'] ?></td></tr>
       <?php endforeach; ?>
     </table>
-  </section>
+  </section></div>
 
-  <section class="panel">
+  <div class="col-12 col-lg-6"><section class="panel h-100">
     <div class="panel-titulo"><h2>Documentos por mes</h2></div>
     <?php foreach ($porMes as $m): ?>
       <?php list($anio, $num) = explode('-', $m['mes']); ?>
@@ -152,7 +152,7 @@ require __DIR__ . '/includes/header.php';
         <span class="barra-valor"><?= (int) $m['n'] ?></span>
       </div>
     <?php endforeach; ?>
-  </section>
+  </section></div>
 </div>
 
 <section class="panel">

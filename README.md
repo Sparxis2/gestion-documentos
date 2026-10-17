@@ -3,8 +3,12 @@
 Sistema web para registrar y consultar oficios. Los datos se guardan en MySQL y el
 archivo (PDF o foto) en la carpeta `pdf/`; la base de datos solo guarda el nombre del archivo.
 
-Hecho con PHP y MySQL (PDO), HTML, CSS y JavaScript, sin frameworks. El mismo código funciona
-en XAMPP (local) y en Vercel con un MySQL en la nube.
+Hecho con PHP y MySQL (PDO) en el servidor, y HTML, CSS, **Bootstrap 5.3.3** y **jQuery 3.7.1** en el
+navegador (incluidos en `assets/vendor/`, funcionan sin internet). El mismo código funciona en XAMPP (local)
+y en Vercel con un MySQL en la nube.
+
+- **Bootstrap:** rejilla responsiva, ventana modal de confirmación, avisos flotantes (toasts) y tooltips.
+- **jQuery:** cambio de estatus por AJAX sin recargar, búsqueda en vivo, vista previa y reducción de fotos.
 
 ## Instalación local (XAMPP)
 
@@ -42,7 +46,7 @@ appweb/
 ├── config/                Conexión a la base de datos
 ├── includes/              Código compartido (conexión, sesión, encabezado, tabla)
 │   └── almacen.php        Archivos en carpeta (XAMPP) o en MySQL (Vercel), sesiones e instalación
-├── assets/                CSS, JS e ícono
+├── assets/                CSS, JS (jQuery), ícono y vendor/ (Bootstrap y jQuery)
 ├── pdf/                   Archivos de los documentos
 ├── perfiles/              Fotos de perfil de los usuarios
 └── database.sql           Tablas y datos iniciales

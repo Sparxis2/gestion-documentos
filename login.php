@@ -28,10 +28,12 @@ $institucion = config_valor('institucion', 'UNACH');
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#2a2c57">
+<meta name="theme-color" content="#2b1121">
 <title>Iniciar sesión · <?= e($sistema) ?></title>
 <link rel="icon" href="assets/img/icono.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/app.css?v=1">
+<!-- Bootstrap 5 (rejilla, modal, avisos y tooltips); después, el diseño propio -->
+<link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/app.css?v=2">
 </head>
 <body class="pagina-login">
 <?php include __DIR__ . '/includes/iconos.php'; ?>
